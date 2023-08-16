@@ -35,7 +35,7 @@ b = [0;0;V_i;0;0;0];
 x=A\b; V_o_PDF =simplify(x(5))
 
 % Q4
-Rd = sqrt(L/C); Cd = 4*Cf
+Rd = sqrt(L/Cf); Cd = 4*Cf;
 F_PDF = RR_tf([Cd*Rd 1],[Cd*Cf*L*Rd (Cd+Cf)*L Cd*Rd 1]);
 RR_bode(F_PDF);
 %% In class example
