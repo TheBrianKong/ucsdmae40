@@ -1,3 +1,4 @@
+%% Q1
 syms s V_1 V_2 I_o I_a I_b I_c I_d R_a C_b C_c R_d V_o
 %x={V_1 V_2 Io    Ia         Ib     Ic      Id}
 A = [1  0   0      R_a       0      0       0 ; % V1 + Ia*Ra = Vo
@@ -24,7 +25,7 @@ omega1 = 10;
 hold on; grid on;
 F1_num = [1 omega1 omega1^2]; F1_den = [1 3*omega1 omega1^2];
 bode(tf(F1_num,F1_den)); 
-legentries = {['\zeta = 2/3']}; % to store each legend entry
+legentries = {['\zeta = 3/2']}; % to store each legend entry
 for zeta = 10.^[-2:1]
 F1_num = [1 omega1 omega1^2]; F1_den = [1 2*zeta*omega1 omega1^2];
 bode(tf(F1_num,F1_den));
@@ -53,7 +54,7 @@ omega2 = 10;
 hold on; grid on;
 F2_num = [1 omega2 omega2^2]; F2_den = [1 3*omega2 omega2^2];
 bode(tf(F2_num,F2_den));
-legentries = {['\zeta = 2/3']}; % to store each legend entry
+legentries = {['\zeta = 3/2']}; % to store each legend entry
 for zeta = 10.^[-2:1]
 bode(tf([1 omega2 omega2^2],[1 2*zeta*omega2 omega2^2]));
     legentries{end+1} = ['\zeta = ' num2str(zeta)];
