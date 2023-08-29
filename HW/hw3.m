@@ -34,3 +34,10 @@ num1= [omega_0/Q 0]; den1 = [1 omega_0/Q omega_0^2];
 F_1 = RR_tf(subs(num1,[Q omega_0],[5 10]), ...
             subs(den1,[Q omega_0],[5 10]));
 RR_bode(F_1)
+%% Further calculations (based on optional solve)
+% we have sys of 2 equations, 2 unknown:
+omega_0 = sqrt(den(3)) % 1/sqrt(LC)
+Q = subs(simplify(omega_0/den(2)),[R c_1],[10000 0]) % plug in R= 10kOhm, c_1 = 0
+eqn_1 = 10 == omega_0; % given by prompt: omega_0 = 10
+eqn_2 = 5 == Q;        % "              : Q = 5,
+[L,C] = solve(eqn_1, eqn_2,L,C)
